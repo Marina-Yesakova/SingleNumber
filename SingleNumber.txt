@@ -1,0 +1,24 @@
+/*
+Given an array of integers, every element appears twice except for one. Find that single one.
+
+Note:
+Algorithm have a linear runtime complexity O(N).
+
+*/
+class Solution {
+    public int singleNumber(int[] nums) {
+        HashSet<Integer> hs = new HashSet<Integer>();
+        for(int i = 0; i < nums.length ; i++){
+           if (hs.contains(nums[i])){
+               hs.remove(nums[i]);
+        }
+            else {
+                hs.add(nums[i]);
+            }
+        }
+       for (Integer v: hs){
+           return v;
+       }  
+         return 1;
+    }
+}
